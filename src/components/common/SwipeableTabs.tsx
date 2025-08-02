@@ -89,12 +89,12 @@ function SwipeableTabs({index, onChangeIndex, children}: SwipeableTabsProps) {
                     }}
                     className="absolute w-full"
                 >
-                    {childrenArray.length > 0 && childrenArray[index] && React.cloneElement(
+                    {childrenArray.length > 0 && index < childrenArray.length && childrenArray[index] ? React.cloneElement(
                         childrenArray[index] as React.ReactElement<{id: string}>,
                         {
                             id: `child-${index}`,
                         }
-                    )}
+                    ) : <div>Загрузка...</div>}
                 </motion.div>
             </AnimatePresence>
         </div>
